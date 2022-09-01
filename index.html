@@ -19,11 +19,11 @@
     </header>
 
     <!--tela inicial-->
-    <section class="telaInicial felipe">
+    <section class="telaInicial">
         <div class="criarQuizz">
             <div class="criar">
                 <h1>Você não criou nenhum quizz ainda :(</h1>
-                <button>Criar Quizz</button>
+                <button onclick="criandoQuiz()">Criar Quizz</button>
             </div>
             <!--criar-->
         </div>
@@ -98,7 +98,7 @@
     <!--telaInicial-->
 
     <!--tela do quiz-->
-    <section class="pagina_quiz tiago">
+    <section class="pagina_quiz tiago escondido">
         <header class="pagina_quiz-titulo" id="top">
             <h2></h2>
         </header>
@@ -136,7 +136,7 @@
             <span></span>
         </div>
     </div>
-    <div class="quiz-final tiago">
+    <div class="quiz-final escondido">
         <a href="#top">
             <button class="restart-quiz atual" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
             <span class="voltar-top">Voltar pra home</span>
@@ -237,7 +237,7 @@
                 </div>
             </div>
             <button>Acessar Quizz</button>
-            <button class="retornar">Voltar para home</button>
+            <button onclick="paginaInicial()" class="retornar">Voltar para home</button>
         </section>
     </div>
     <!---->

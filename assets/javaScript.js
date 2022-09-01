@@ -23,6 +23,22 @@ function chegou(res) {
     });
 }
 
+function criandoQuiz() {
+    document.querySelector(".telaInicial").classList.add("escondido")
+    // Escondendo a tela inicial
+    document.querySelector(".sucesso").classList.remove("escondido")
+    document.querySelector(".perguntas").classList.remove("escondido")
+    document.querySelector(".infos-basicas").classList.remove("escondido")
+    document.querySelector(".criar_quiz").classList.remove("escondido")
+    // Mostrando a tela de criacao de quizes
+}
+
+function paginaInicial() {
+    window.location.reload() 
+    //recarrega a pagina pra mostrar a tela inicial junto do quiz criado
+}
+
+// Fim do js de Felipe 
 
 /*pagina de quiz javascript JONAS*/
 
