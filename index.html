@@ -12,22 +12,27 @@
 
 <body>
     <header class="topo">
-        <a href="index.html#top"><h1>BuzzQuizz</h1></a>
+        <a href="index.html#top">
+            <h1>BuzzQuizz</h1>
+        </a>
     </header>
 
     <!--tela inicial-->
-    <section class="telaInicial">
+    <section class="telaInicial felipe">
         <div class="criarQuizz">
-            <div class="criar" >
+            <div class="criar">
                 <h1>Você não criou nenhum quizz ainda :(</h1>
                 <button>Criar Quizz</button>
-            </div><!--criar-->
-        </div><!--criarQuizz-->
+            </div>
+            <!--criar-->
+        </div>
+        <!--criarQuizz-->
         <div class="seusQuizzes escondido">
             <div class="addQuiz">
                 <h1>Seus Quizzes</h1>
                 <ion-icon name="add-circle-outline" size="large" style="color: red;"></ion-icon>
-            </div><!--addQuiz-->
+            </div>
+            <!--addQuiz-->
             <div class="seusQuizesImage">
                 <div class="imgQuizes">
                     <a href="#">
@@ -77,34 +82,36 @@
                         </div>
                     </a>
                 </div>
-            </div><!--seusQuizesImage-->
-        </div><!--seusQuizzes-->
+            </div>
+            <!--seusQuizesImage-->
+        </div>
+        <!--seusQuizzes-->
 
         <h1 class="todos">Todos os Quizzes</h1>
-        
+
         <div class="Quizes">
             <!--QUIZES GERADOS PELA API-->
-        </div><!--Quizes-->
-    </section><!--telaInicial-->
+        </div>
+        <!--Quizes-->
+    </section>
+    <!--telaInicial-->
 
     <!--tela do quiz-->
     <section class="pagina_quiz tiago">
         <header class="pagina_quiz-titulo" id="top">
-            <div></div>
-            <img src="img/img-pagina-quiz/Rectangle 42.png" alt="">
-            <h2>O quão Potterhead é você?</h2>
+            <h2></h2>
         </header>
-        <div class="perguta_quiz">
-            <div class="perguta_quiz-titulo">
-                <img src="img/img-pagina-quiz/Rectangle 37.png" alt="">
-                <h3>Em qual animal Olho-Tonto Moody transfigurou Malfoy?</h3>
+        <div class="pergunta_quiz">
+          <!-- <div class=""></div>
+            <div class="pergunta_quiz-titulo">
+                <h3></h3>
             </div>
-            <div class="perguta_quiz-option">
-                <div class="option respostas-certa" id="resposta-user">
+            <div class="pergunta_quiz-option">
+                 <div class="option respostas-certa" id="resposta-user">
                     <img src="img/img-pagina-quiz/image 3.png" alt="">
                     <span>Gatíneo</span>
                 </div>
-                <div class="option respostas-errada resposta-user-not">
+                <div class="option respostas-errada resposta-user-not " >
                     <img src="img/img-pagina-quiz/image 4.png" alt="">
                     <span>Ratata</span>
                 </div>
@@ -115,49 +122,25 @@
                 <div class="option respostas-errada resposta-user-not">
                     <img src="img/img-pagina-quiz/image 8.png" alt="">
                     <span>Mustela putorius (o Furão)</span>
-                </div>
-            </div>
+            </div>-->
         </div>
-        <div class="perguta_quiz">
-            <div class="respondido"></div>
-            <div class="perguta_quiz-titulo">
-                <img src="img/img-pagina-quiz/Rectangle 38.png" alt="">
-                <h3>Qual dos objetos abaixo NÃO é uma horcrux?</h3>
-            </div>
-            <div class="perguta_quiz-option">
-                <div class="option respostas-certa resposta-user-not">
-                    <img src="img/img-pagina-quiz/Rectangle 381.png" alt="">
-                    <span>The boy who lived</span>
-                </div>
-                <div class="option respostas-errada ">
-                    <img src="img/img-pagina-quiz/Rectangle 39.png" alt="">
-                    <span>O livro monstruoso dos monstros</span>
-                </div>
-                <div class="option respostas-errada resposta-user-not">
-                    <img src="img/img-pagina-quiz/Rectangle 40.png" alt="">
-                    <span>Anel velho</span>
-                </div>
-                <div class="option respostas-errada resposta-user-not">
-                    <img src="img/img-pagina-quiz/Rectangle 41.png" alt="">
-                    <span>Diadema da Ravenclaw</span>
-                </div>
-            </div>
-        </div>
-        <div class="gabarito">
-            <div class="gabarito-titulo">
-                <img src="img/img-pagina-quiz/Rectangle 372.png" alt="">
-                <h3>88% de acerto: Você é praticamente um aluno de Hogwarts!</h3>
-            </div>
-            <div class="gabarioto-resultado">
-                <img src="img/img-pagina-quiz/image 10.png" alt="">
-                <span>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no
-                    botão abaixo para usar o vira-tempo e reiniciar este teste.</span>
-            </div>
-        </div>
-        <button class="restart-quiz">Reiniciar Quizz</button>
-        <a href="#top"><span class="voltar-top">Voltar pra home</span></a>
         </div>
     </section>
+    <div class="gabarito invisivel atual tiago">
+        <div class="gabarito-titulo">
+            <h3></h3>
+        </div>
+        <div class="gabarito-resultado">
+            <img src="" alt="">
+            <span></span>
+        </div>
+    </div>
+    <div class="quiz-final tiago">
+        <a href="#top">
+            <button class="restart-quiz atual" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
+            <span class="voltar-top">Voltar pra home</span>
+        </a>
+    </div>
 
     <!---->
 
@@ -266,4 +249,5 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/javaScript.js"></script>
 </body>
+
 </html>
