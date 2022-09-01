@@ -312,6 +312,104 @@ a {
     opacity: 0.1;
 }
 
+/*Criar quiz*/
+.criar_quiz {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #FAFAFA;
+}
+
+.criar_quiz header {
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 130px;
+    margin-bottom: 30px;
+}
+
+.criar_quiz main {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0px;
+    margin-bottom: 25px;
+}
+
+.criar_quiz main input {
+    width: 95%;
+    height: 46px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.criar_quiz main input::placeholder {
+    color: #bababa;
+    font-style: italic;
+}
+
+.criar_quiz button {
+    width: 370px;
+    height: 54px;
+    background-color: #ec362d;
+    border: none;
+    border-radius: 15px;
+    color: #fff5f4;
+    font-size: 20px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    cursor: pointer;
+}
+
+.infos-basicas, .perguntas, .niveis, .sucesso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perguntas div, .niveis div{
+    width: 95%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.perguntas div>img, .niveis div>img{
+    width: 26px;
+    height: 23px;
+}
+
+.sucesso button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sucesso .retornar {
+    background-color: #FAFAFA;
+    color: #818181;
+}
+
+.escondido {
+    display: none;
+}
+
+
 @media(max-width: 1300px) {
     .Quizes {
         display: flex;
