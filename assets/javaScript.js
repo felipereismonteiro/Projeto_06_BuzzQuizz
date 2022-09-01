@@ -13,7 +13,7 @@ function chegou(res) {
         `
        <div class="imgQuizes">
             <a href="#">
-                <div class="img">
+                <div class="img" >
                     <h1>${element.title}</h1>
                     <img src="${element.image}">
                 </div>
