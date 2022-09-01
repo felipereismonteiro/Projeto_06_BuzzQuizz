@@ -313,6 +313,7 @@ a {
 }
 
 /*Criar quiz*/
+
 .criar_quiz {
     font-family: 'Roboto', sans-serif;
     position: absolute;
@@ -353,6 +354,7 @@ a {
     border: 1px solid #d1d1d1;
     border-radius: 5px;
     font-size: 17px;
+    resize: none;
 }
 
 .criar_quiz main input::placeholder {
@@ -421,5 +423,25 @@ a {
     .telaInicial {
         margin: 0 auto;
         max-width: 90%;
+    }
+}
+
+@media(max-width: 600px) {
+    .infos-basicas, .perguntas, .niveis, .sucesso, .criar_quiz main {
+        width: 100%;
+    }
+
+    .sucesso .imgQuizes {
+        width: 85%;
+    }
+
+    .sucesso .imgQuizes img{
+        width: 100%;
+    }
+}
+
+@media(max-width: 400px) {
+    .criar_quiz button {
+        width: 95%;
     }
 }
