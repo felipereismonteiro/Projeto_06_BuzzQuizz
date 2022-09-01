@@ -102,6 +102,12 @@ body {
     justify-content: center;
 }
 
+.img img {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+    border-radius: 5px;
+    width: 340px;
+}
+
 .imgQuizes h1 {
     position: absolute;
     max-width: 301px;
@@ -410,16 +416,23 @@ a {
 }
 
 
-@media(max-width: 1300px) {
+@media(max-width: 1100px) {
     .Quizes {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
     }
-
     .telaInicial {
         margin: 0 auto;
         max-width: 90%;
+    }
+    .img img {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+        border-radius: 5px;
+        width: 100%;
+    }
+    .imgQuizes {
+        width: 100%;
     }
 }
