@@ -94,6 +94,7 @@ body {
 
 .imgQuizes {
     margin-bottom: 10px;
+    width: 33%;
 }
 
 .imgQuizes .imgText {
@@ -434,5 +435,6 @@ a {
     }
     .imgQuizes {
         width: 100%;
+        max-width: 340px;
     }
 }
