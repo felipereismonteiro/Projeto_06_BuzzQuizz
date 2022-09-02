@@ -1,5 +1,4 @@
 const quizes = document.querySelector(".Quizes");
-
 function allQuizes() { //buscando todos os quizes
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promise.then(chegou)
@@ -7,13 +6,14 @@ function allQuizes() { //buscando todos os quizes
 allQuizes()
 
 function chegou(res) {
+    console.log(res.data)
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
         quizes.innerHTML += 
         `
        <div class="imgQuizes">
             <a href="#">
-                <div class="img" data-img="${quiz.id}">
+                <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
                     <h1>${quiz.title}</h1>
                     <img src="${quiz.image}">
                 </div>

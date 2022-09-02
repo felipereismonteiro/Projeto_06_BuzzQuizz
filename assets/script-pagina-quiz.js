@@ -1,41 +1,92 @@
+//f2
+function chamarTela() {
+
+    const homeTela = document.querySelector('.telaInicial');
+    homeTela.classList.add('escondido');
+
+    const quizTela = document.querySelector('.paginaquiz');
+    quizTela.classList.remove('escondido');
+}
+
+
 const quizUrl = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 
-buscarQuiz(2);
+//f1
+function buscarQuiz(id) {
 
-function buscarQuiz(id){
+    chamarTela()
 
-    
     const promisse = axios.get(`${quizUrl}${id}`);
-    
+
     promisse.then(recebendoQuiz);
     promisse.catch(retornoErro);
 }
-
 
 /*pagina de quiz javascript JONAS*/
 
 let quiz;
 
+//f3
 function recebendoQuiz(quizCompleto) {
+
     quiz = quizCompleto.data
-   // console.log(quiz)
     montarQuiz(quiz)
+
 }
 
 function retornoErro(erro) {
     console.log(erro)
 }
 
-
+//f4
 function montarQuiz(quizEscolhido) {
-    montarTitulo(quizEscolhido)
-    montarPerguntas(quizEscolhido.questions)
+
+    // montarTitulo(quizEscolhido)
+
+
+    paginaQuiz.innerHTML = `<header class="pagina_quiz-titulo" id="top">
+                                    <h2>${quizEscolhido.title}</h2>
+                                </header>`
+
+    document.querySelector(".pagina_quiz-titulo").style.background = `rgba(0, 0, 0, 0.6) url(${quizEscolhido.image}) top center no-repeat`;
+    document.querySelector(".pagina_quiz-titulo").style.backgroundSize = `cover`;
+
+    // montarPerguntas(quizEscolhido.questions)
+
+    const perguntas = quizEscolhido.questions
+    perguntas.forEach((pergunta) => {
+
+        paginaQuiz.innerHTML += `<div class="atual divmarge"></div>
+                            <div class="pergunta_quiz ">
+                                <div></div>
+                                <div class="pergunta_quiz-titulo">
+                                    <h3>${pergunta.title}</h3>
+                                </div>
+                                <div class="pergunta_quiz-option ">
+                                    
+                                </div>
+                            </div>`
+
+        cores.push(pergunta.color)
+        options.push(pergunta.answers)
+
+    })
+
+    const titulosPerguntas = document.querySelectorAll(".pergunta_quiz-titulo");
+    for (let i = 0; i < cores.length; i++) {
+
+        titulosPerguntas[i].style.backgroundColor = cores[i];
+
+    }
+
+    montarQuests(options);
 
 }
 
 
 const paginaQuiz = document.querySelector('.pagina_quiz')
 
+/*
 function montarTitulo(quizEscolhido) {
 
     paginaQuiz.innerHTML = `<header class="pagina_quiz-titulo" id="top">
@@ -45,9 +96,12 @@ function montarTitulo(quizEscolhido) {
     document.querySelector(".pagina_quiz-titulo").style.background = `rgba(0, 0, 0, 0.6) url(${quizEscolhido.image}) top center no-repeat`;
     document.querySelector(".pagina_quiz-titulo").style.backgroundSize = `cover`;
 }
+*/
 
-const cores = [];
-const options = [];
+let cores = [];
+let options = []; //variavel que monta as opções
+
+/*
 function montarPerguntas(perguntas) {
     perguntas.forEach((pergunta) => {
 
@@ -70,16 +124,18 @@ function montarPerguntas(perguntas) {
     const titulosPerguntas = document.querySelectorAll(".pergunta_quiz-titulo");
     for (let i = 0; i < cores.length; i++) {
 
-        titulosPerguntas[i].style.backgroundColor = cores[i]
+        titulosPerguntas[i].style.backgroundColor = cores[i];
+
     }
 
 
     montarQuests(options);
 
-}
+}*/
 
 
-const gabarito = []
+let gabarito = []
+
 function montarQuests(options) {
 
     const quizQuest = document.querySelectorAll(".pergunta_quiz-option");
@@ -87,7 +143,9 @@ function montarQuests(options) {
 
     for (let i = 0; i < opt.length; i++) {
         opt[i].sort(embaralhar);
+
         const respostaPergunta = []
+
         for (let j = 0; j < opt[i].length; j++) {
             quizQuest[i].innerHTML += `<div class="option" onclick="resposta(this)" data-option="${j}">
                                             <img src="${opt[i][j].image}" alt="" >
@@ -97,7 +155,10 @@ function montarQuests(options) {
         }
         gabarito.push(respostaPergunta)
     }
+
     respostaPergunta = [];
+
+    setTimeout(rolagemTela, 1000)
 
 }
 
@@ -133,12 +194,12 @@ function resposta(escolha) {
 }
 
 
-function rolagemTela() {
+function rolagemTela() {///rolara a tela
 
     const atualElemento = document.querySelector('.atual');
     atualElemento.scrollIntoView();
 
-}
+} ///
 
 
 let cont = 0;
@@ -194,7 +255,7 @@ function montarScore(quizScore) {
 
     if (acertos > 60) {
         nf++;
-    } 
+    }
 
     const gabaritoScore = document.querySelector('.gabarito-titulo')
     gabaritoScore.querySelector('h3').innerHTML = `${acertos}% de acerto: ${quizScore.levels[nf].title}`
@@ -202,23 +263,54 @@ function montarScore(quizScore) {
     document.querySelector('.gabarito-resultado span').innerHTML = `${quizScore.levels[nf].text}`
 }
 
+/*REINICIA QUIZ*/
 function reiniciarQuiz() {
-    console.log(idQuiz)
-    //buscarQuiz(idQuiz)
-     window.location.reload()
+    //reset()
+    console.log('entrei')
 
+    document.querySelectorAll('.divmarge').forEach((div) => {
+        div.classList.toggle('atual')
+    });
+
+    document.querySelectorAll('.respondido').forEach((op) => {
+        op.classList.toggle('respondido');
+    });
+
+    document.querySelectorAll('.resposta-user-not').forEach((res) => {
+        res.classList.toggle('resposta-user-not');
+    });
+
+    document.querySelectorAll('.respostas-errada').forEach((resp) => {
+        resp.classList.toggle('respostas-errada');
+    });
+
+    document.querySelectorAll('.respostas-certa').forEach((resp) => {
+        resp.classList.toggle('respostas-certa');
+    });
+
+    document.querySelector('.gabarito').classList.toggle('invisivel');
+
+    cont = 0;
+    nf = 0;
+    scoreFinal = 0;
+    rolagemTela();
+    console.log('saindo');
 }
 
 /*VOLTAR AO HOMER */
-function voltarHome() {
 
+function voltarHome() {
+    window.location.reload()
+/*
     const botVoltar = document.querySelector('.paginaquiz') //pegando minha tela
     const home = document.querySelector('.telaInicial') //pegando a tela home
 
     botVoltar.classList.toggle('escondido')  //escondendo minha tela
     home.classList.toggle('escondido') //mostra home
+*/
+
+
 }
 
-
-
 /*fim* JONAS*/
+
