@@ -93,6 +93,16 @@
     display: none;
 }
 
+.erro {
+    width: 100%;
+    padding: 0px 15px;
+    color: red;
+}
+
+.vermelho {
+    background-color: #FFE9E9;
+}
+
 
 @media(max-width: 600px) {
     .infos-basicas, .perguntas, .niveis, .sucesso, .criar_quiz main {

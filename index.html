@@ -151,11 +151,15 @@
             <header>Comece pelo começo</header>
             <main>
                 <input type="text" placeholder="Título do seu quizz" />
+                <div class="erro escondido">O título deve possuir entre 20 e 65 caracteres</div>
                 <input type="text" placeholder="URL da imagem do seu quizz" />
+                <div class="erro escondido">O valor informado não é uma URL válida</div>
                 <input type="text" placeholder="Quantidade de perguntas do quizz" />
+                <div class="erro escondido">O quizz deve ter no mínimo 3 perguntas</div>
                 <input type="text" placeholder="Quantidade de níveis do quizz" />
+                <div class="erro escondido">O quizz deve ter no mínimo 2 níveis</div>
             </main>
-            <button>Prosseguir pra criar perguntas</button>
+            <button onclick="verifica_infos_basicas()">Prosseguir pra criar perguntas</button>
         </section>
 
         <section class="perguntas escondido">
