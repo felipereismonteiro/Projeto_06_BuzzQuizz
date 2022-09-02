@@ -8,14 +8,14 @@ allQuizes()
 
 function chegou(res) {
     quizes.innerHTML = ""
-    res.data.forEach(element => {
+    res.data.forEach(quiz => {
         quizes.innerHTML += 
         `
        <div class="imgQuizes">
             <a href="#">
-                <div class="img" data-img="${element.id}">
-                    <h1>${element.title}</h1>
-                    <img src="${element.image}">
+                <div class="img" data-img="${quiz.id}">
+                    <h1>${quiz.title}</h1>
+                    <img src="${quiz.image}">
                 </div>
             </a>
         </div>
