@@ -115,6 +115,18 @@
     color: red;
 }
 
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ec362d;
+    font-size: 25px;
+}
+
 
 @media(max-width: 600px) {
     .infos-basicas, .perguntas, .niveis, .sucesso, .criar_quiz main {

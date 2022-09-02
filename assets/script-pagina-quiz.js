@@ -1,6 +1,9 @@
 //f2
 function chamarTela() {
 
+    const CriarQuizz = document.querySelector('.criar_quiz');
+    CriarQuizz.classList.add("escondido");
+
     const homeTela = document.querySelector('.telaInicial');
     homeTela.classList.add('escondido');
 

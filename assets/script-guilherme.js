@@ -318,7 +318,7 @@ function renderizaNiveis(quant_niveis){
     }
 
     blocoNiveis.innerHTML += `
-    <div class="erro escondido">Deve haver pelo menos um nível com % de acerto maior que 0</div>
+    <div class="erro escondido">Deve haver pelo menos um nível com % de acerto mínima igual a 0%</div>
     <button onclick="verifica_niveis()">Finalizar Quizz</button>`;
     window.scrollTo(0,0);
 }
@@ -386,16 +386,16 @@ function verifica_niveis() {
     }
 
     if(!problemaGeral) {
-        acertosZerados = true;
+        acertosZerados = false;
         niveis.forEach((nivel) => {
             const inputs = nivel.querySelectorAll("input");
             const acerto = Number(inputs[1].value);
-            if(acerto!==0) {
-                acertosZerados = false;
+            if(acerto===0) {
+                acertosZerados = true;
             }
         })
 
-        if(acertosZerados) {
+        if(!acertosZerados) {
             niveis.forEach((nivel) => {
                 const inputs = nivel.querySelectorAll("input");
                 inputs[1].classList.add("vermelho");
@@ -415,29 +415,36 @@ function verifica_niveis() {
 
     if(!problemaGeral) {
         newQuizz.levels = levels;
-        console.log(newQuizz);
         const promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes",newQuizz);
+        //loading("criar_quiz");
         promise.then(renderizaSucesso);
         promise.catch((erro) => {console.log(erro)});
     }
 }
 
 function renderizaSucesso(dados) {
-    console.log(dados.data);
-    /*document.querySelector(".niveis").classList.add("escondido");
+    document.querySelector(".niveis").classList.add("escondido");
     const blocoSucesso = document.querySelector(".sucesso");
     blocoSucesso.classList.remove("escondido");
     blocoSucesso.innerHTML = `
     <header>Seu quizz está pronto!</header>
-            <div class="imgQuizes">
+            <div class="imgQuizes" onclick="recebendoQuiz(dados)">
                 <div class="img">
                     <h1>${newQuizz.title}</h1>
                     <img src="${newQuizz.image}" alt="Não foi possível carregar a imagem">
                 </div>
             </div>
-            <button>Acessar Quizz</button>
+            <button onclick="buscarQuiz(${dados.data.id})">Acessar Quizz</button>
             <button onclick="paginaInicial()" class="retornar">Voltar para home</button>`;
-            */
+    //loading("criar_quiz");
+    let IDsSerializados = localStorage.getItem("IDs");
+    let IDsDeserializados = [];
+    if(IDsSerializados!==null) {
+        IDsDeserializados = JSON.parse(IDsSerializados);
+    }
+    IDsDeserializados.push(dados.data.id);
+    IDsSerializados = JSON.stringify(IDsDeserializados);
+    localStorage.setItem("IDs",IDsSerializados);
 }
 
 function EHexadecimal(string) {
@@ -476,4 +483,9 @@ const isValidUrl = urlString=> {
   '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
   '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
 return !!urlPattern.test(urlString);
+}
+
+function loading(pagina) {
+    document.querySelector("."+pagina).classList.toggle("escondido");
+    document.querySelector(".loading").classList.toggle("escondido");
 }
