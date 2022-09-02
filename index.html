@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/style-guilherme.css">
+    <link rel="stylesheet" href="assets/style-pagina-do-quiz.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     </header>
 
     <!--tela inicial-->
-    <section class="telaInicial">
+    <section class="telaInicial ">
         <div class="criarQuizz">
             <div class="criar">
                 <h1>Você não criou nenhum quizz ainda :(</h1>
@@ -28,7 +29,7 @@
             <!--criar-->
         </div>
         <!--criarQuizz-->
-        <div class="seusQuizzes escondido">
+        <div class="seusQuizzes">
             <div class="addQuiz">
                 <h1>Seus Quizzes</h1>
                 <ion-icon name="add-circle-outline" size="large" style="color: red;"></ion-icon>
@@ -97,53 +98,58 @@
     </section>
     <!--telaInicial-->
 
+
     <!--tela do quiz-->
-    <section class="pagina_quiz tiago escondido">
-        <header class="pagina_quiz-titulo" id="top">
-            <h2></h2>
-        </header>
-        <div class="pergunta_quiz">
-          <!-- <div class=""></div>
-            <div class="pergunta_quiz-titulo">
+    <div class="paginaquiz escondido">
+
+        <section class="pagina_quiz">
+            <header class="pagina_quiz-titulo" id="top">
+                <h2></h2>
+            </header>
+            <div class="pergunta_quiz">
+                <!-- <div class=""></div>
+                <div class="pergunta_quiz-titulo">
+                    <h3></h3>
+                </div>
+                <div class="pergunta_quiz-option">
+                     <div class="option respostas-certa" id="resposta-user">
+                        <img src="img/img-pagina-quiz/image 3.png" alt="">
+                        <span>Gatíneo</span>
+                    </div>
+                    <div class="option respostas-errada resposta-user-not " >
+                        <img src="img/img-pagina-quiz/image 4.png" alt="">
+                        <span>Ratata</span>
+                    </div>
+                    <div class="option respostas-errada resposta-user-not">
+                        <img src="img/img-pagina-quiz/image 7.png" alt="">
+                        <span>Sapo gordo</span>
+                    </div>
+                    <div class="option respostas-errada resposta-user-not">
+                        <img src="img/img-pagina-quiz/image 8.png" alt="">
+                        <span>Mustela putorius (o Furão)</span>
+                </div>-->
+            </div>
+
+        </section>
+        <div class="gabarito invisivel atual">
+            <div class="gabarito-titulo">
                 <h3></h3>
             </div>
-            <div class="pergunta_quiz-option">
-                 <div class="option respostas-certa" id="resposta-user">
-                    <img src="img/img-pagina-quiz/image 3.png" alt="">
-                    <span>Gatíneo</span>
-                </div>
-                <div class="option respostas-errada resposta-user-not " >
-                    <img src="img/img-pagina-quiz/image 4.png" alt="">
-                    <span>Ratata</span>
-                </div>
-                <div class="option respostas-errada resposta-user-not">
-                    <img src="img/img-pagina-quiz/image 7.png" alt="">
-                    <span>Sapo gordo</span>
-                </div>
-                <div class="option respostas-errada resposta-user-not">
-                    <img src="img/img-pagina-quiz/image 8.png" alt="">
-                    <span>Mustela putorius (o Furão)</span>
-            </div>-->
+            <div class="gabarito-resultado">
+                <img src="" alt="">
+                <span></span>
+            </div>
         </div>
-        </div>
-    </section>
-    <div class="gabarito invisivel atual tiago">
-        <div class="gabarito-titulo">
-            <h3></h3>
-        </div>
-        <div class="gabarito-resultado">
-            <img src="" alt="">
-            <span></span>
-        </div>
-    </div>
-    <div class="quiz-final escondido">
-        <a href="#top">
+        <div class="quiz-final">
             <button class="restart-quiz atual" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
-            <span class="voltar-top">Voltar pra home</span>
-        </a>
+            <span class="voltar-home" onclick="voltarHome()">Voltar pra home</span>
+        </div>
+
     </div>
 
-    <!---->
+    <!--fim do quiz-->
+
+
 
     <!--criação de quiz-->
     <div class="criar_quiz guilherme escondido">
@@ -253,6 +259,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/javaScript.js"></script>
+    <script src="assets/script-pagina-quiz.js"></script>
 </body>
 
 </html>
