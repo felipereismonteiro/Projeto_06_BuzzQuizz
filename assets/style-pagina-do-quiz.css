@@ -44,7 +44,7 @@
     position: relative;
     width: 90%;
     height: 137px;
-    margin: 27px auto;
+    margin: 28px auto 8px auto;
     background-color: #818181;
 }
 
@@ -68,10 +68,14 @@
 }
 
 .pergunta_quiz-option .option {
+    max-width: 330px;
+    max-height: 228px;
     display: flex;
     flex-direction: column;
-    margin: 10px 0;
+    margin: 10px 0 15px 0;
     cursor: pointer;
+    position: relative;
+    word-wrap: break-word;
 
 }
 
@@ -84,7 +88,6 @@
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
-    word-wrap: break-word;
 }
 
 .atual, .divmarge {
@@ -280,7 +283,7 @@ a {
     .gabarito {
         width: 375px;
         height: 490px;
-        margin: 42px auto;
+        margin: 20px auto;
         flex-direction: column;
         align-items: center;
     }
@@ -319,6 +322,18 @@ a {
         background-color: #EC362D;
         color: #FFF5F4;
         font-size: 18px;
-        margin: 50px auto 2px auto;
+        margin: 4px auto 2px auto;
+    }
+
+    .voltar-home {
+        margin: 20px auto 20px auto;
+    }
+    
+
+    /*fim gab*/
+
+    .divmarge {
+        height: 10px;
+        margin-bottom: 50px;
     }
 }
