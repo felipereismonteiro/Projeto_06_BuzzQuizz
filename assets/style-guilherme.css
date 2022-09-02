@@ -63,7 +63,7 @@
     align-items: center;
 }
 
-.perguntas div, .niveis div{
+.destaque{
     width: 95%;
     font-size: 20px;
     font-weight: bold;
@@ -74,9 +74,17 @@
     justify-content: space-between;
 }
 
-.perguntas div>img, .niveis div>img{
+.destaque>img{
     width: 26px;
     height: 23px;
+    cursor: pointer;
+}
+
+.telaDeInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .sucesso button {
@@ -101,6 +109,10 @@
 
 .vermelho {
     background-color: #FFE9E9;
+}
+
+.destacarErro {
+    color: red;
 }
 
 
