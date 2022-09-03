@@ -67,10 +67,10 @@ function renderizaPerguntas(quant_perguntas, quant_niveis) {
     blocoPerguntas.classList.remove("escondido");
     blocoPerguntas.innerHTML = `
     <header>Crie suas perguntas</header>
-    <main>
+    <main data-identifier="question-form">
         <div class="destaque">
             <span>Pergunta 1<span class="destacarErro escondido">*</span></span>
-            <img src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="escondido">
+            <img data-identifier="expand" src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="escondido">
         </div>
         <div class="telaDeInputs">
             <input type="text" placeholder="Texto da pergunta" />
@@ -100,10 +100,10 @@ function renderizaPerguntas(quant_perguntas, quant_niveis) {
     
     for(let i=2;i<=quant_perguntas;i++) {
         blocoPerguntas.innerHTML += `
-        <main>
+        <main data-identifier="question-form">
         <div class="destaque">
             <span>Pergunta ${i}<span class="destacarErro escondido">*</span></span>
-            <img src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="">
+            <img data-identifier="expand" src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="">
         </div>
         <div class="telaDeInputs escondido">
             <input type="text" placeholder="Texto da pergunta" />
@@ -278,10 +278,10 @@ function renderizaNiveis(quant_niveis){
     blocoNiveis.classList.remove("escondido");
     blocoNiveis.innerHTML = `
             <header>Agora, decida os níveis</header>
-            <main>
+            <main data-identifier="level">
                 <div class="destaque">
                     <span>Nível 1<span class="destacarErro escondido">*</span></span>
-                    <img src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="escondido">
+                    <img data-identifier="expand" src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="escondido">
                 </div>
 
                 <div class="telaDeInputs">
@@ -298,10 +298,10 @@ function renderizaNiveis(quant_niveis){
     
     for(let i=2;i<=quant_niveis;i++) {
         blocoNiveis.innerHTML += `
-            <main>
+            <main data-identifier="level">
                 <div class="destaque">
                     <span>Nível ${i}<span class="destacarErro escondido">*</span></span>
-                    <img src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="">
+                    <img data-identifier="expand" src="./img/img-pagina-quiz/Vector.png" onclick="expandirInputs(this)" class="">
                 </div>
 
                 <div class="telaDeInputs escondido">
