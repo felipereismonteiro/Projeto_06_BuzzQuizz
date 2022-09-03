@@ -41,6 +41,9 @@ function retornoErro(erro) {
     console.log(erro)
 }
 
+let cores = [];
+let options = []; //variavel que monta as opções
+
 //f4
 function montarQuiz(quizEscolhido) {
 
@@ -87,54 +90,7 @@ function montarQuiz(quizEscolhido) {
 }
 
 
-const paginaQuiz = document.querySelector('.pagina_quiz')
-
-/*
-function montarTitulo(quizEscolhido) {
-
-    paginaQuiz.innerHTML = `<header class="pagina_quiz-titulo" id="top">
-                                <h2>${quizEscolhido.title}</h2>
-                            </header>`
-
-    document.querySelector(".pagina_quiz-titulo").style.background = `rgba(0, 0, 0, 0.6) url(${quizEscolhido.image}) top center no-repeat`;
-    document.querySelector(".pagina_quiz-titulo").style.backgroundSize = `cover`;
-}
-*/
-
-let cores = [];
-let options = []; //variavel que monta as opções
-
-/*
-function montarPerguntas(perguntas) {
-    perguntas.forEach((pergunta) => {
-
-        paginaQuiz.innerHTML += `<div class="atual divmarge"></div>
-                                <div class="pergunta_quiz ">
-                                    <div></div>
-                                    <div class="pergunta_quiz-titulo">
-                                        <h3>${pergunta.title}</h3>
-                                    </div>
-                                    <div class="pergunta_quiz-option ">
-                                        
-                                    </div>
-                                </div>`
-
-        cores.push(pergunta.color)
-        options.push(pergunta.answers)
-
-    })
-
-    const titulosPerguntas = document.querySelectorAll(".pergunta_quiz-titulo");
-    for (let i = 0; i < cores.length; i++) {
-
-        titulosPerguntas[i].style.backgroundColor = cores[i];
-
-    }
-
-
-    montarQuests(options);
-
-}*/
+const paginaQuiz = document.querySelector('.pagina_quiz');
 
 
 let gabarito = []
@@ -268,8 +224,6 @@ function montarScore(quizScore) {
 
 /*REINICIA QUIZ*/
 function reiniciarQuiz() {
-    //reset()
-    console.log('entrei')
 
     document.querySelectorAll('.divmarge').forEach((div) => {
         div.classList.toggle('atual')
@@ -297,20 +251,13 @@ function reiniciarQuiz() {
     nf = 0;
     scoreFinal = 0;
     rolagemTela();
-    console.log('saindo');
 }
 
 /*VOLTAR AO HOMER */
 
 function voltarHome() {
-    window.location.reload()
-/*
-    const botVoltar = document.querySelector('.paginaquiz') //pegando minha tela
-    const home = document.querySelector('.telaInicial') //pegando a tela home
 
-    botVoltar.classList.toggle('escondido')  //escondendo minha tela
-    home.classList.toggle('escondido') //mostra home
-*/
+    window.location.reload()
 
 
 }

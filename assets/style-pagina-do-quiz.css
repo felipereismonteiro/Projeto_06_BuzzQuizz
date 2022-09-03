@@ -24,8 +24,9 @@
     font-size: 2.43rem;
     color: #fff;
     text-align: center;
-    position: absolute;
-    z-index: 2;
+    word-wrap: break-word;
+    width: 96%;
+    
 }
 
 /*pergutas*/
@@ -59,6 +60,8 @@
     font-weight: 700;
     text-align: center;
     margin: 55px auto;
+    width: 95%;
+    word-wrap: break-word;
 }
 
 .pergunta_quiz-option {
@@ -124,11 +127,14 @@
     font-weight: 700;
     margin-top: 35px;
     text-align: center;
+    width: 95%;
+    word-wrap: break-word
 }
 
 .gabarito-resultado {
     width: 96%;
     display: flex;
+    position: relative;
 }
 
 .gabarito-resultado>span {
@@ -136,6 +142,8 @@
     font-weight: 700;
     margin: 0 15px;
     line-height: 25px;
+    width: 40%;
+    word-wrap: break-word;
 }
 
 .gabarito-resultado>img {
@@ -213,11 +221,7 @@ a {
 
 
     .pagina_quiz-titulo>h2 {
-        font-size: 1.186rem;
-        color: #fff;
-        text-align: center;
-        position: absolute;
-        z-index: 2;
+        font-size: 1.15rem;
     }
 
     .pergunta_quiz {
@@ -292,14 +296,12 @@ a {
     .gabarito-titulo {
         width: 96%;
         height: 100px;
-        margin: auto;
         background-color: #EC362D;
 
     }
 
     .gabarito-titulo>h3 {
         font-size: 19px;
-        margin-top: 45px;
     }
 
     .gabarito-resultado {
@@ -309,11 +311,13 @@ a {
 
     .gabarito-resultado>span {
         font-size: 17px;
-        margin: 20px 0;
+        margin: 20px auto;
+        width: 95%;
     }
 
     .gabarito-resultado>img {
-        width: 100%;
+        width: 95%;
+        margin: auto;
         height: 255px;
     }
 
