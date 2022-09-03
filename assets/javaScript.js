@@ -1,4 +1,4 @@
-const quizes = document.querySelector(".Quizes");
+ const quizes = document.querySelector(".Quizes");
 function allQuizes() { //buscando todos os quizes
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promise.then(chegou)

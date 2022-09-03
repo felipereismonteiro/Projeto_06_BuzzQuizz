@@ -206,10 +206,6 @@ a {
     opacity: 0.1;
 }
 
-.invisivel {
-    display: none;
-}
-
 @media (max-width: 1100px) {
     /*pagina do quiz*/
 
