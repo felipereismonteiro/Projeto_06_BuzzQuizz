@@ -15,7 +15,7 @@ function chamarTela() {
 const quizUrl = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 
 //f1
-buscarQuiz(1)
+//buscarQuiz(1)
 function buscarQuiz(id) {
 
     chamarTela()
