@@ -297,7 +297,7 @@ function calculandoScore(quiz, acertos) {
             }
             break;
         default:
-            calert('nivel de quiz invalido');
+            return tamanhoDoNivel.length - 1;
             break;
     }
 
