@@ -6,6 +6,7 @@
 .pagina_quiz {
     font-family: 'Roboto', sans-serif;
     margin-top: 69px;
+    overflow: hidden;
 }
 
 .pagina_quiz-titulo {

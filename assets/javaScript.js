@@ -7,7 +7,7 @@ allQuizes()
 
 function chegou(res) {
     let ids = JSON.parse(localStorage.getItem("IDs"))
-    
+
     if (ids.length === 0) {
         document.querySelector(".criarQuizz").classList.remove("escondido")
         document.querySelector(".seusQuizzes").classList.add("escondido")
@@ -18,25 +18,33 @@ function chegou(res) {
     res.data.forEach(quiz => {
         const seusQuizes = document.querySelector(".seusQuizesImage")
 
-        if (quiz.id == ids[0] || quiz.id == ids[1]) {
-            seusQuizes.innerHTML += 
-            `
-            <div class="imgQuizes">
-                <a>
-                    <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
-                        <h1>${quiz.title}</h1>
-                        <img src="${quiz.image}">
-                    </div>
-                </a>
-            </div>
-            `
-            return false
-        } // mostrando seus quizes
+        ids.forEach((id) => {
+            if (quiz.id == id) {
+                seusQuizes.innerHTML +=
+                    `
+                <div class="imgQuizes">
+                    <a href="#">
+                        <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
+                            <h1>${quiz.title}</h1>
+                            <img src="${quiz.image}">
+                        </div>
+                    </a>
+                </div>
+                `
+                return false
+            }
+        }) // mostrando seus quizes
 
-        quizes.innerHTML += 
-        `
+        for (i = 0; i < ids.length; i++) {
+            if (quiz.id === ids[i]) {
+                return false    
+            }
+        }
+
+        quizes.innerHTML +=
+            `
        <div class="imgQuizes">
-            <a>
+            <a href="#">
                 <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
                     <h1>${quiz.title}</h1>
                     <img src="${quiz.image}">
@@ -63,7 +71,7 @@ function criandoQuiz() {
 }
 
 function paginaInicial() {
-    window.location.reload() 
+    window.location.reload()
     //recarrega a pagina pra mostrar a tela inicial junto do quiz criado
 }
 
