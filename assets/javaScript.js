@@ -6,13 +6,37 @@ function allQuizes() { //buscando todos os quizes
 allQuizes()
 
 function chegou(res) {
-    console.log(res.data)
+    let ids = JSON.parse(localStorage.getItem("IDs"))
+    
+    if (ids.length === 0) {
+        document.querySelector(".criarQuizz").classList.remove("escondido")
+        document.querySelector(".seusQuizzes").classList.add("escondido")
+    }// se por acaso nao vc nao tiver nenhum quiz
+
+
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
+        const seusQuizes = document.querySelector(".seusQuizesImage")
+
+        if (quiz.id == ids[0] || quiz.id == ids[1]) {
+            seusQuizes.innerHTML += 
+            `
+            <div class="imgQuizes">
+                <a>
+                    <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
+                        <h1>${quiz.title}</h1>
+                        <img src="${quiz.image}">
+                    </div>
+                </a>
+            </div>
+            `
+            return false
+        } // mostrando seus quizes
+
         quizes.innerHTML += 
         `
        <div class="imgQuizes">
-            <a href="#">
+            <a>
                 <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
                     <h1>${quiz.title}</h1>
                     <img src="${quiz.image}">
@@ -20,7 +44,7 @@ function chegou(res) {
             </a>
         </div>
         `
-    });
+    }); //mostrando todos os quizes
 }
 
 function criandoQuiz() {

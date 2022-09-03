@@ -445,6 +445,7 @@ function renderizaSucesso(dados) {
     IDsDeserializados.push(dados.data.id);
     IDsSerializados = JSON.stringify(IDsDeserializados);
     localStorage.setItem("IDs",IDsSerializados);
+    console.log(IDsDeserializados)
 }
 
 function EHexadecimal(string) {

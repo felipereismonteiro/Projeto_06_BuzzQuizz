@@ -129,7 +129,7 @@ body {
 
 .imgQuizes {
     margin-bottom: 10px;
-    width: 340px;
+    overflow: hidden;
 }
 
 .imgQuizes .imgText {
@@ -160,7 +160,7 @@ body {
     .Quizes {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
     }
 
@@ -169,14 +169,8 @@ body {
         max-width: 90%;
     }
 
-    .imgQuizes {
-        width: 100%;
-        max-width: 340px;
-        margin-right: 2px;
-    }
-
     .seusQuizesImage {
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     
