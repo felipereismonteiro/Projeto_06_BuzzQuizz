@@ -8,16 +8,17 @@ allQuizes()
 function chegou(res) {
     let ids = JSON.parse(localStorage.getItem("IDs"))
 
-    if (ids.length === 0) {
+    if(ids === !null){
+        if (ids.length === 0) {
         document.querySelector(".criarQuizz").classList.remove("escondido")
         document.querySelector(".seusQuizzes").classList.add("escondido")
-    }// se por acaso nao vc nao tiver nenhum quiz
-
+        }//se por acaso nao vc nao tiver nenhum quiz
+}
 
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
         const seusQuizes = document.querySelector(".seusQuizesImage")
-
+        if(ids === !null){
         ids.forEach((id) => {
             if (quiz.id == id) {
                 seusQuizes.innerHTML +=
@@ -34,10 +35,13 @@ function chegou(res) {
                 return false
             }
         }) // mostrando seus quizes
+    }
 
-        for (i = 0; i < ids.length; i++) {
-            if (quiz.id === ids[i]) {
-                return false    
+    if (ids === !null) {
+            for (i = 0; i < ids.length; i++) {
+                if (quiz.id === ids[i]) {
+                    return false    
+                }
             }
         }
 
@@ -74,11 +78,3 @@ function paginaInicial() {
     window.location.reload()
     //recarrega a pagina pra mostrar a tela inicial junto do quiz criado
 }
-
-// Fim do js de Felipe 
-
-/*pagina de quiz javascript JONAS*/
-
-
-
-/*fim* JONAS*/
