@@ -15,6 +15,7 @@ function chamarTela() {
 const quizUrl = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 
 //f1
+buscarQuiz(1)
 function buscarQuiz(id) {
 
     chamarTela()
@@ -23,6 +24,7 @@ function buscarQuiz(id) {
 
     promisse.then(recebendoQuiz);
     promisse.catch(retornoErro);
+
 }
 
 /*pagina de quiz javascript JONAS*/
@@ -32,8 +34,8 @@ let quiz;
 //f3
 function recebendoQuiz(quizCompleto) {
 
-    quiz = quizCompleto.data
-    montarQuiz(quiz)
+    quiz = quizCompleto.data;
+    montarQuiz(quiz);
 
 }
 
@@ -210,11 +212,7 @@ function montarScore(quizScore) {
     const qtdPerguntas = quizScore.questions.length;
     let acertos = Math.floor((scoreFinal / qtdPerguntas) * 100);
 
-    console.log(acertos)
-
-    if (acertos > 60) {
-        nf++;
-    }
+    nf = calculandoScore(quizScore, acertos);
 
     const gabaritoScore = document.querySelector('.gabarito-titulo')
     gabaritoScore.querySelector('h3').innerHTML = `${acertos}% de acerto: ${quizScore.levels[nf].title}`
@@ -264,3 +262,43 @@ function voltarHome() {
 
 /*fim* JONAS*/
 
+/*calculo de score */
+
+
+function calculandoScore(quiz, acertos) {
+    console.log(quiz.levels)
+    const tamanhoDoNivel = quiz.levels;
+    console.log(acertos)
+
+    switch (tamanhoDoNivel.length) {
+
+        case 1:
+            console.log('1 nivel' + tamanhoDoNivel[0].minValue);
+            if (acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[0].minValue) {
+                return 0;
+            }
+            break;
+        case 2:
+            console.log(' 2nivel ' + tamanhoDoNivel[1].minValue + ' e ' + tamanhoDoNivel[0].minValue);
+            if(acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue){
+                return 0;
+            }else{
+                return 1;
+            }
+            break;
+        case 3:
+            console.log(' 3nivel ' + tamanhoDoNivel[0].minValue + ' e ' + tamanhoDoNivel[1].minValue + ' e ' + tamanhoDoNivel[2].minValue);
+            if(acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue){
+                return 0;
+            } else if(acertos >= tamanhoDoNivel[1].minValue && acertos < tamanhoDoNivel[2].minValue){
+                return 1;
+            }else{
+                return 2;
+            }
+            break;
+        default:
+            calert('nivel de quiz invalido');
+            break;
+    }
+
+}
