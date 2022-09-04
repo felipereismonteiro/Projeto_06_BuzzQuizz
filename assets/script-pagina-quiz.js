@@ -56,8 +56,7 @@ function montarQuiz(quizEscolhido) {
                                     <h2>${quizEscolhido.title}</h2>
                                 </header>`
 
-    document.querySelector(".pagina_quiz-titulo").style.background = `rgba(0, 0, 0, 0.6) url(${quizEscolhido.image}) top center no-repeat`;
-    document.querySelector(".pagina_quiz-titulo").style.backgroundSize = `cover`;
+    document.querySelector(".pagina_quiz-titulo").style.background = `rgba(0, 0, 0, 0.6) url(${quizEscolhido.image}) center / cover no-repeat `;
 
     // montarPerguntas(quizEscolhido.questions)
 
@@ -108,11 +107,13 @@ function montarQuests(options) {
         const respostaPergunta = []
 
         for (let j = 0; j < opt[i].length; j++) {
+
             quizQuest[i].innerHTML += `<div class="option" onclick="resposta(this)" data-option="${j}">
                                             <img src="${opt[i][j].image}" alt="" >
                                             <span>${opt[i][j].text}</span>
                                          </div>` //montando as options
             respostaPergunta.push(opt[i][j].isCorrectAnswer)
+
         }
         gabarito.push(respostaPergunta)
     }
@@ -127,8 +128,6 @@ function embaralhar() {
     return Math.random() - 0.5;
 
 }
-
-
 
 
 /*RESPONDENDO */
@@ -198,7 +197,7 @@ function score() {
     if (cont === qddPerguntas.length) {
         montarScore(quiz)
         const gabaritoFinal = document.querySelector(".gabarito")
-        gabaritoFinal.classList.remove('invisivel')
+        gabaritoFinal.classList.remove('invisivelScore')
 
     }
 
@@ -243,7 +242,7 @@ function reiniciarQuiz() {
         resp.classList.toggle('respostas-certa');
     });
 
-    document.querySelector('.gabarito').classList.toggle('invisivel');
+    document.querySelector('.gabarito').classList.toggle('invisivelScore');
 
     cont = 0;
     nf = 0;
@@ -255,16 +254,12 @@ function reiniciarQuiz() {
 
 function voltarHome() {
 
-    window.location.reload()
-
+    window.location.reload();
 
 }
 
-/*fim* JONAS*/
 
 /*calculo de score */
-
-
 function calculandoScore(quiz, acertos) {
     console.log(quiz.levels)
     const tamanhoDoNivel = quiz.levels;
@@ -273,26 +268,23 @@ function calculandoScore(quiz, acertos) {
     switch (tamanhoDoNivel.length) {
 
         case 1:
-            console.log('1 nivel' + tamanhoDoNivel[0].minValue);
             if (acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[0].minValue) {
                 return 0;
             }
             break;
         case 2:
-            console.log(' 2nivel ' + tamanhoDoNivel[1].minValue + ' e ' + tamanhoDoNivel[0].minValue);
-            if(acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue){
+            if (acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue) {
                 return 0;
-            }else{
+            } else {
                 return 1;
             }
             break;
         case 3:
-            console.log(' 3nivel ' + tamanhoDoNivel[0].minValue + ' e ' + tamanhoDoNivel[1].minValue + ' e ' + tamanhoDoNivel[2].minValue);
-            if(acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue){
+            if (acertos >= tamanhoDoNivel[0].minValue && acertos < tamanhoDoNivel[1].minValue) {
                 return 0;
-            } else if(acertos >= tamanhoDoNivel[1].minValue && acertos < tamanhoDoNivel[2].minValue){
+            } else if (acertos >= tamanhoDoNivel[1].minValue && acertos < tamanhoDoNivel[2].minValue) {
                 return 1;
-            }else{
+            } else {
                 return 2;
             }
             break;
@@ -302,3 +294,5 @@ function calculandoScore(quiz, acertos) {
     }
 
 }
+
+/*fim* JONAS*/

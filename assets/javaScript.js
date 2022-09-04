@@ -1,4 +1,4 @@
- const quizes = document.querySelector(".Quizes");
+const quizes = document.querySelector(".Quizes");
 function allQuizes() { //buscando todos os quizes
     const promise = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes');
     promise.then(chegou)
@@ -8,21 +8,21 @@ allQuizes()
 function chegou(res) {
     let ids = JSON.parse(localStorage.getItem("IDs"))
 
-    if(ids === null){
+    if (ids === null) {
         document.querySelector(".criarQuizz").classList.remove("escondido")
         document.querySelector(".seusQuizzes").classList.add("escondido")
-        
-}
+
+    }
 
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
         const seusQuizes = document.querySelector(".seusQuizesImage")
 
-        if(ids === !null){
-        ids.forEach((id) => {
-            if (quiz.id == id) {
-                seusQuizes.innerHTML +=
-                    `
+        if (ids === !null) {
+            ids.forEach((id) => {
+                if (quiz.id == id) {
+                    seusQuizes.innerHTML +=
+                        `
                 <div class="imgQuizes">
                     <a href="#">
                         <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
@@ -32,15 +32,15 @@ function chegou(res) {
                     </a>
                 </div>
                 `
-                return false
-            }
-        }) // mostrando seus quizes
-    }
+                    return false
+                }
+            }) // mostrando seus quizes
+        }
 
-    if (ids === !null) {
+        if (ids === !null) {
             for (i = 0; i < ids.length; i++) {
                 if (quiz.id === ids[i]) {
-                    return false    
+                    return false
                 }
             }
         }
