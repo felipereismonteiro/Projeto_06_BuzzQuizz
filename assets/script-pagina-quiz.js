@@ -1,14 +1,18 @@
 //f2
-function chamarTela() {
+function chamarTela(origem) {
 
-    const CriarQuizz = document.querySelector('.criar_quiz');
+    loading(origem);
+
+    setTimeout(loading, 1000, 'paginaquiz');
+
+  /*  const CriarQuizz = document.querySelector('.criar_quiz');
     CriarQuizz.classList.add("escondido");
 
     const homeTela = document.querySelector('.telaInicial');
     homeTela.classList.add('escondido');
 
     const quizTela = document.querySelector('.paginaquiz');
-    quizTela.classList.remove('escondido');
+    quizTela.classList.remove('escondido');*/
 }
 
 
@@ -16,9 +20,11 @@ const quizUrl = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 
 //f1
 //buscarQuiz(1)
-function buscarQuiz(id) {
-
-    chamarTela()
+function buscarQuiz(id, origem) {
+    
+    console.log(origem)
+    
+    chamarTela(origem);
 
     const promisse = axios.get(`${quizUrl}${id}`);
 
@@ -35,7 +41,7 @@ let quiz;
 function recebendoQuiz(quizCompleto) {
 
     quiz = quizCompleto.data;
-    montarQuiz(quiz);
+    setTimeout(montarQuiz, 1000, quiz);
 
 }
 
@@ -242,22 +248,13 @@ function reiniciarQuiz() {
         resp.classList.toggle('respostas-certa');
     });
 
-    document.querySelector('.gabarito').classList.toggle('invisivelScore');
+    document.querySelector('.gabarito').classList.add('invisivelScore');
 
     cont = 0;
     nf = 0;
     scoreFinal = 0;
     rolagemTela();
 }
-
-/*VOLTAR AO HOMER */
-
-function voltarHome() {
-
-    window.location.reload();
-
-}
-
 
 /*calculo de score */
 function calculandoScore(quiz, acertos) {

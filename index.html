@@ -20,7 +20,7 @@
     </header>
 
     <!--tela inicial-->
-    <section class="telaInicial">
+    <section class="telaInicial escondido">
         <div class="criarQuizz escondido">
             <div class="criar">
                 <h1>Você não criou nenhum quizz ainda :(</h1>
@@ -74,7 +74,7 @@
         </div>
         <div class="quiz-final">
             <button class="restart-quiz atual" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
-            <span class="voltar-home" onclick="voltarHome()">Voltar pra home</span>
+            <span class="voltar-home" onclick="paginaInicial('paginaquiz')">Voltar pra home</span>
         </div>
 
     </div>
@@ -109,10 +109,14 @@
     <!---->
 
     <!--Tela de Loading (Não está funcionando - class escondido não esconde)-->
-    <!--<div class="loading escondido">
-        <img src="./img/img-pagina-quiz/loading.gif" alt="Não foi possível carregar a imagem">
-        Carregando
-    </div>-->
+    <aside>
+        
+        <div class="loading">
+            <img src="./img/img-pagina-quiz/loading.gif" alt="Não foi possível carregar a imagem">
+            Carregando
+        </div>
+
+    </aside>
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

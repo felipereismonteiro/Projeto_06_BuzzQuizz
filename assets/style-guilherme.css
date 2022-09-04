@@ -97,9 +97,6 @@
     color: #818181;
 }
 
-.escondido {
-    display: none;
-}
 
 .erro {
     width: 100%;
@@ -127,6 +124,9 @@
     font-size: 25px;
 }
 
+.escondido {
+    display: none;
+}
 
 @media(max-width: 600px) {
     .infos-basicas, .perguntas, .niveis, .sucesso, .criar_quiz main {

@@ -6,6 +6,9 @@ function allQuizes() { //buscando todos os quizes
 allQuizes()
 
 function chegou(res) {
+
+    setTimeout(loading, 800, 'telaInicial')
+
     let ids = JSON.parse(localStorage.getItem("IDs"))
 
     if (ids === null) {
@@ -25,7 +28,7 @@ function chegou(res) {
                         `
                 <div class="imgQuizes">
                     <a href="#">
-                        <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
+                        <div class="img" onclick="buscarQuiz(${quiz.id},'telaInicial');" data-img="${quiz.id}">
                             <h1>${quiz.title}</h1>
                             <img src="${quiz.image}">
                         </div>
@@ -49,7 +52,7 @@ function chegou(res) {
             `
        <div class="imgQuizes">
             <a href="#">
-                <div class="img" onclick="buscarQuiz(${quiz.id});" data-img="${quiz.id}">
+                <div class="img" onclick="buscarQuiz(${quiz.id},'telaInicial' );" data-img="${quiz.id}">
                     <h1>${quiz.title}</h1>
                     <img src="${quiz.image}">
                 </div>
@@ -75,6 +78,11 @@ function criandoQuiz() {
 }
 
 function paginaInicial() {
-    window.location.reload()
+
+   // console.log('eia')
+    //loading(pagina);
+    setTimeout(window.location.reload(), 1000)
+
+   // window.location.reload()
     //recarrega a pagina pra mostrar a tela inicial junto do quiz criado
 }
