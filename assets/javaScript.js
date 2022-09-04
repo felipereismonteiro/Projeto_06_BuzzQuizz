@@ -8,16 +8,16 @@ allQuizes()
 function chegou(res) {
     let ids = JSON.parse(localStorage.getItem("IDs"))
 
-    if(ids === !null){
-        if (ids.length === 0) {
+    if(ids === null){
         document.querySelector(".criarQuizz").classList.remove("escondido")
         document.querySelector(".seusQuizzes").classList.add("escondido")
-        }//se por acaso nao vc nao tiver nenhum quiz
+        
 }
 
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
         const seusQuizes = document.querySelector(".seusQuizesImage")
+
         if(ids === !null){
         ids.forEach((id) => {
             if (quiz.id == id) {
