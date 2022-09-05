@@ -7,7 +7,7 @@ allQuizes()
 
 function chegou(res) {
 
-    setTimeout(loading, 800, 'telaInicial')
+    setTimeout(loading, 800, ' ')
 
     let ids = JSON.parse(localStorage.getItem("IDs"))
 
