@@ -19,6 +19,7 @@ function chegou(res) {
     quizes.innerHTML = ""
     res.data.forEach(quiz => {
         const seusQuizes = document.querySelector(".seusQuizesImage")
+        
         if (ids !== null) {
             ids.forEach((id) => {
                 if (quiz.id == id) {
@@ -34,29 +35,32 @@ function chegou(res) {
                     </div>
                     `
                     return false
-                }  
+                } 
             }) // mostrando seus quizes
-        }
-    
+        } 
         if (ids !== null) {
-            return false
-        }
-                
-            quizes.innerHTML +=
-                `
-           <div class="imgQuizes">
-                <a href="#">
-                    <div class="img" onclick="buscarQuiz(${quiz.id},'telaInicial' );" data-img="${quiz.id}">
-                        <h1>${quiz.title}</h1>
-                        <img src="${quiz.image}">
-                    </div>
-                </a>
-            </div>
-            `
+        for (i =0 ; i < ids.length; i++) {
+            if (quiz.id == ids[i]) {
+                return false
+            }
+        }    
+    }
+
+        quizes.innerHTML +=
+        `
+        <div class="imgQuizes">
+            <a href="#">
+                <div class="img" onclick="buscarQuiz(${quiz.id},'telaInicial' );" data-img="${quiz.id}">
+                    <h1>${quiz.title}</h1>
+                    <img src="${quiz.image}">
+                </div>
+            </a>
+        </div>
+        `
         
     }); //mostrando todos os quizes
+    
 }
-
 function criandoQuiz() {
     document.querySelector(".telaInicial").classList.add("escondido")
     // Escondendo a tela inicial
