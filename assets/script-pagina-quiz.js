@@ -22,8 +22,6 @@ const quizUrl = 'https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/';
 //buscarQuiz(1)
 function buscarQuiz(id, origem) {
     
-    console.log(origem)
-    
     chamarTela(origem);
 
     const promisse = axios.get(`${quizUrl}${id}`);
@@ -70,7 +68,7 @@ function montarQuiz(quizEscolhido) {
     perguntas.forEach((pergunta) => {
 
         paginaQuiz.innerHTML += `<div class="atual divmarge"></div>
-                            <div class="pergunta_quiz ">
+                            <div class="pergunta_quiz " data-identifier="question">
                                 <div></div>
                                 <div class="pergunta_quiz-titulo">
                                     <h3>${pergunta.title}</h3>
@@ -114,7 +112,7 @@ function montarQuests(options) {
 
         for (let j = 0; j < opt[i].length; j++) {
 
-            quizQuest[i].innerHTML += `<div class="option" onclick="resposta(this)" data-option="${j}">
+            quizQuest[i].innerHTML += `<div class="option" onclick="resposta(this)"  data-identifier="answer" data-option="${j}">
                                             <img src="${opt[i][j].image}" alt="" >
                                             <span>${opt[i][j].text}</span>
                                          </div>` //montando as options
@@ -258,9 +256,7 @@ function reiniciarQuiz() {
 
 /*calculo de score */
 function calculandoScore(quiz, acertos) {
-    console.log(quiz.levels)
     const tamanhoDoNivel = quiz.levels;
-    console.log(acertos)
 
     switch (tamanhoDoNivel.length) {
 

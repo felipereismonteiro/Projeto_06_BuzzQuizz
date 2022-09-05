@@ -36,6 +36,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .pergunta_quiz-titulo {
@@ -64,6 +65,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 90%;
+    height: 88%;
+    position: relative;
 }
 
 .pergunta_quiz-option .option {
@@ -73,9 +76,9 @@
     flex-direction: column;
     margin: 10px 0 15px 0;
     cursor: pointer;
-    position: relative;
+    height: 45%;
     word-wrap: break-word;
-
+    overflow: hidden;
 }
 
 .option img {
@@ -276,6 +279,7 @@ a {
     .option>span {
         font-size: 12px;
         margin: 8px 0;
+        height: 25px;
     }
 
 
@@ -287,7 +291,7 @@ a {
 
     .gabarito {
         width: 375px;
-        height: 600px;
+        height: 500px;
         margin: 20px auto;
         flex-direction: column;
     }
@@ -295,8 +299,7 @@ a {
     .gabarito-titulo {
         width: 96%;
         height: 100px;
-        background-color: #EC362D;
-
+        margin: 9px auto;
     }
 
     .gabarito-titulo>h3 {
@@ -310,7 +313,6 @@ a {
 
     .gabarito-resultado>span {
         font-size: 17px;
-        margin: 20px auto;
         width: 95%;
     }
 
