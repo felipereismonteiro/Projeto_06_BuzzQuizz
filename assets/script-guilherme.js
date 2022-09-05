@@ -434,7 +434,7 @@ function renderizaSucesso(dados) {
                     <img src="${newQuizz.image}" alt="Não foi possível carregar a imagem">
                 </div>
             </div>
-            <button onclick="buscarQuiz(${dados.data.id})">Acessar Quizz</button>
+            <button onclick="buscarQuiz(${dados.data.id}, 'sucesso')">Acessar Quizz</button>
             <button onclick="paginaInicial()" class="retornar">Voltar para home</button>`;
     //loading("criar_quiz");
     let IDsSerializados = localStorage.getItem("IDs");
@@ -486,6 +486,8 @@ return !!urlPattern.test(urlString);
 }
 
 function loading(pagina) {
+
     document.querySelector("."+pagina).classList.toggle("escondido");
     document.querySelector(".loading").classList.toggle("escondido");
+
 }

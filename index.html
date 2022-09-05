@@ -20,7 +20,7 @@
     </header>
 
     <!--tela inicial-->
-    <section class="telaInicial">
+    <section class="telaInicial escondido">
         <div class="criarQuizz escondido">
             <div class="criar">
                 <h1>Você não criou nenhum quizz ainda :(</h1>
@@ -59,31 +59,12 @@
                 <h2></h2>
             </header>
             <div class="pergunta_quiz">
-                <!-- <div class=""></div>
-                <div class="pergunta_quiz-titulo">
-                    <h3></h3>
-                </div>
-                <div class="pergunta_quiz-option">
-                     <div class="option respostas-certa" id="resposta-user">
-                        <img src="img/img-pagina-quiz/image 3.png" alt="">
-                        <span>Gatíneo</span>
-                    </div>
-                    <div class="option respostas-errada resposta-user-not " >
-                        <img src="img/img-pagina-quiz/image 4.png" alt="">
-                        <span>Ratata</span>
-                    </div>
-                    <div class="option respostas-errada resposta-user-not">
-                        <img src="img/img-pagina-quiz/image 7.png" alt="">
-                        <span>Sapo gordo</span>
-                    </div>
-                    <div class="option respostas-errada resposta-user-not">
-                        <img src="img/img-pagina-quiz/image 8.png" alt="">
-                        <span>Mustela putorius (o Furão)</span>
-                </div>-->
+
             </div>
 
         </section>
-        <div class="gabarito invisivel atual">
+        <div class="atual divmarge"></div>
+        <div class="gabarito invisivelScore atual" data-identifier="quizz-result">
             <div class="gabarito-titulo">
                 <h3></h3>
             </div>
@@ -94,7 +75,7 @@
         </div>
         <div class="quiz-final">
             <button class="restart-quiz atual" onclick="reiniciarQuiz()">Reiniciar Quizz</button>
-            <span class="voltar-home" onclick="voltarHome()">Voltar pra home</span>
+            <span class="voltar-home" onclick="paginaInicial('paginaquiz')">Voltar pra home</span>
         </div>
 
     </div>
@@ -129,10 +110,14 @@
     <!---->
 
     <!--Tela de Loading (Não está funcionando - class escondido não esconde)-->
-    <!--<div class="loading escondido">
-        <img src="./img/img-pagina-quiz/loading.gif" alt="Não foi possível carregar a imagem">
-        Carregando
-    </div>-->
+    <aside>
+        
+        <div class="loading">
+            <img src="./img/img-pagina-quiz/loading.gif" alt="Não foi possível carregar a imagem">
+            Carregando
+        </div>
+
+    </aside>
 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
